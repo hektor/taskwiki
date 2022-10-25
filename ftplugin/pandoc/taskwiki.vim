@@ -97,8 +97,8 @@ execute "command! -buffer -range TaskWikiChooseTag :<line1>,<line2>"         . g
 execute "command! -buffer TaskWikiInspect :" . g:taskwiki_py . "Meta().inspect_viewport()"
 
 " Disable <CR> as VimwikiFollowLink
-if !hasmapto('<Plug>VimwikiFollowLink')
-  nmap <Plug>NoVimwikiFollowLink <Plug>VimwikiFollowLink
+if !hasmapto('<Plug>WikiLinkFollow')
+  nmap <Plug>NoWikiLinkFollow <Plug>WikiLinkFollow
 endif
 
 execute "nnoremap <silent><buffer> <CR> :" . g:taskwiki_py . "Mappings.task_info_or_vimwiki_follow_link()<CR>"
