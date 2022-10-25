@@ -110,14 +110,17 @@ class TaskCache(object):
         default_rc = util.get_var('taskwiki_taskrc_location') or '~/.taskrc'
         default_data = util.get_var('taskwiki_data_location') or None
         extra_warrior_defs = util.get_var('taskwiki_extra_warriors', {})
-        markup_syntax = vim.eval("vimwiki#vars#get_wikilocal('syntax')") or 'default'
+        # markup_syntax = vim.eval("vimwiki#vars#get_wikilocal('syntax')") or 'default'
 
-        # Validate markup choice and set it
-        if markup_syntax in ["default", "markdown"]:
-            self.markup_syntax = markup_syntax
-        else:
-            msg = "Unknown markup given: {}".format(markup_syntax)
-            raise errors.TaskWikiException(msg)
+        # FIXME
+        # # Validate markup choice and set it
+        # if markup_syntax in ["default", "markdown"]:
+        #     self.markup_syntax = markup_syntax
+        # else:
+        #     msg = "Unknown markup given: {}".format(markup_syntax)
+        #     raise errors.TaskWikiException(msg)
+
+        self.markup_syntax = "markdown"
 
         # Initialize all the subcomponents
         self.buffer = BufferProxy(buffer_number)
